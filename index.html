@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Regular Expression</title>
+	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body class="container">
+	<span id="message"></span>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="card mt-3">
+				<div class="card-header bg-warning">Sample form</div>
+				<div class="card-body">
+					
+					<form>
+						<input type="text" class="form-control" onkeyup="validateNumber()" id="phno" placeholder="Enter Phone Number"><!--onChange-->
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</body>
+<script type="text/javascript">
+	function validateNumber() {
+		var msg=document.querySelector("#message");
+		var num=document.querySelector("#phno").value;
+		if(num.match("^[6-9]{1}[0-9]{9}$")!=null)
+		{
+			msg.classList.remove("alert-warning");
+			msg.classList.add("alert","alert-primary");
+			msg.textContent="Phone Number is validated;";
+		}
+		else{
+			msg.classList.remove("alert-primary")
+			msg.classList.add("alert","alert-warning");
+			msg.textContent="Phone Number is not validated;";
+		}
+
+	}
+</script>
+</html>
